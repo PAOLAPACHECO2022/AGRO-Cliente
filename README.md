@@ -40,10 +40,24 @@ Navega a la carpeta del servidor y ejecuta los siguientes comandos:
 
 ```bash
 # Entrar a la carpeta
-cd backend
+cd servidor
 
 # Instalar dependencias
 npm install express mongoose cors body-parser mongoose-unique-validator bcrypt jsonwebtoken
 
 # Iniciar el servidor
 node index.js
+
+
+### Configuración del Frontend (React)
+
+Abre una nueva terminal en la carpeta del frontend y ejecuta:
+
+# Entrar a la carpeta
+cd cliente
+
+# Instalar dependencias
+npm install
+
+# Iniciar la aplicación
+npm start
