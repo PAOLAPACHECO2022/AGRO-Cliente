@@ -20,7 +20,7 @@ El proyecto utiliza el stack **MERN** y herramientas complementarias:
 
 ---
 
-## 🚀 Cómo ejecutar la aplicación
+##  Cómo ejecutar la aplicación
 
 ### 1. Requisitos Previos
 * **Node.js** instalado (versión 14 o superior).
@@ -73,7 +73,7 @@ La aplicación está construida bajo una arquitectura de separación de responsa
 
 ---
 
-## 📋 Supuestos Realizados
+##  Supuestos Realizados
 * **Cédula como ID Único:** Se considera que la cédula es un número único e inmutable, usado como parámetro principal en rutas de actualización (`/users/update/:cedula`).
 * **Seguridad CORS:** El backend permite peticiones desde `localhost:3000`.
 * **Estado de Autenticación:** Se asume el envío del token JWT en los encabezados de Axios (`auth-token`) para rutas protegidas.
@@ -81,4 +81,4 @@ La aplicación está construida bajo una arquitectura de separación de responsa
 * **Conectividad:** Es indispensable contar con conexión estable a internet para comunicar con el clúster de **MongoDB Atlas**.
 
 ---
-Desarrollado con ❤️ para la gestión del sector agrícola.
+Desarrollado con  para la gestión del sector agrícola.
