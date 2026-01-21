@@ -48,7 +48,7 @@ npm install express mongoose cors body-parser mongoose-unique-validator bcrypt j
 # Iniciar el servidor
 node index.js
 
-
+---
 ### Configuración del Frontend (React)
 
 Abre una nueva terminal en la carpeta del frontend y ejecuta:
