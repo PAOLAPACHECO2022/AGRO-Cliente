@@ -1,66 +1,84 @@
 #  Sistema de Gestión para Productos Agrícolas (MERN Stack)
 
-¡Bienvenido al **Sistema de Gestión Agrícola**! Una solución integral desarrollada con el stack **MERN** (MongoDB, Express, React, Node.js) diseñada para que los productores gestionen su perfil, seguridad y catálogo de productos de manera eficiente y moderna.
+¡Bienvenido al **Sistema de Gestión Agrícola**! Una solución integral diseñada para que los productores gestionen su perfil, seguridad y catálogo de productos de manera eficiente y moderna.
 
----
-
-##  Descripción
-Esta aplicación permite a los usuarios:
-* **Registrarse e Iniciar Sesión** con altos estándares de seguridad.
-* **Gestionar el Perfil Personal** con actualizaciones en tiempo real.
-* **Administrar Productos** agrícolas de forma práctica.
+Este proyecto separa las responsabilidades en dos áreas principales: un **Backend** robusto encargado de la lógica y seguridad, y un **Frontend** dinámico para la interacción del usuario.
 
 ---
 
 ##  Tecnologías Utilizadas
-El proyecto utiliza las siguientes herramientas:
+El proyecto utiliza el stack **MERN** y herramientas complementarias:
 
-| Tecnología | Propósito |
-| :--- | :--- |
-| **MongoDB Atlas** | Base de Datos NoSQL en la nube |
-| **Express.js** | Framework para el servidor (Backend) |
-| **React.js** | Biblioteca para la interfaz de usuario (Frontend) |
-| **Node.js** | Entorno de ejecución de JavaScript |
-| **React-Bootstrap** | Framework de diseño UI/UX |
-| **Axios** | Cliente HTTP para peticiones al servidor |
-| **Bcrypt / JWT** | Encriptación y autenticación segura |
+* **Base de Datos:** MongoDB (Atlas)
+* **Backend:** Express.js & Node.js
+* **Frontend:** React.js
+* **Diseño (UI/UX):** React-Bootstrap
+* **Comunicación:** Axios (Peticiones HTTP)
+* **Seguridad:** Bcrypt (Hash de claves) & JSON Web Tokens (JWT)
+
+
 
 ---
 
-##  Cómo ejecutar la aplicación
+## 🚀 Cómo ejecutar la aplicación
 
 ### 1. Requisitos Previos
-Antes de empezar, asegúrate de tener instalado:
-* **Node.js** (Versión 14 o superior).
-* **MongoDB Atlas** (La conexión ya está configurada en el código).
-* **Git** (Opcional).
-
-### 2. Configuración del Backend (Servidor)
-Navega a la carpeta del servidor y ejecuta los siguientes comandos:
-
-```bash
-# Entrar a la carpeta
-cd servidor
-
-# Instalar dependencias
-npm install express mongoose cors body-parser mongoose-unique-validator bcrypt jsonwebtoken
-
-# Iniciar el servidor
-node index.js
+* **Node.js** instalado (versión 14 o superior).
+* **MongoDB Atlas** (la conexión ya está configurada en el código).
+* **Git** (opcional).
 
 ---
 
-
 ### 2. Configuración del Backend (Servidor)
-### Configuración del Frontend (React)
+Ubicado generalmente en la carpeta `/server` o `/backend`.
 
-Abre una nueva terminal en la carpeta del frontend y ejecuta:
+1.  Abre una terminal en la carpeta del servidor.
+2.  Instala las dependencias necesarias:
+    ```bash
+    npm install express mongoose cors body-parser mongoose-unique-validator bcrypt jsonwebtoken
+    ```
+3.  **Conexión a la DB:** Verifica que el archivo use la siguiente URI:
+    `mongodb+srv://agro_product:Jd3fL1NDPEWnP3Bn@cluster0.4akt0ql.mongodb.net/reactdb?appName=Cluster0`
+4.  Inicia el servidor:
+    ```bash
+    node index.js
+    ```
+    > El servidor se ejecutará en el puerto **4000**.
 
-# Entrar a la carpeta
-cd cliente
+---
 
-# Instalar dependencias
-npm install
+### 3. Configuración del Frontend (React)
+Ubicado generalmente en la carpeta `/client` o `/frontend`.
 
-# Iniciar la aplicación
-npm start
+1.  Abre otra terminal en la carpeta del frontend.
+2.  Instala las dependencias:
+    ```bash
+    npm install
+    ```
+3.  Inicia la aplicación:
+    ```bash
+    npm start
+    ```
+    > La aplicación se abrirá automáticamente en [http://localhost:3000](http://localhost:3000).
+
+---
+
+##  Arquitectura y Funcionalidades
+La aplicación está construida bajo una arquitectura de separación de responsabilidades:
+
+* **Autenticación y Seguridad:** Sistema de registro e inicio de sesión con encriptación **Bcrypt** y protección de rutas mediante **JWT**.
+* **Perfil de Usuario (CRUD):** Módulo para consultar y actualizar datos personales. Incluye lógica para cambio de contraseña (solo se actualiza si el usuario ingresa un nuevo valor).
+* **Interfaz Moderna:** Uso de **React-Bootstrap** para una experiencia clara y adaptada al contexto agrícola.
+* **Persistencia de Sesión:** Empleo de `localStorage` para mantener al usuario conectado y cargar su perfil usando la **cédula** tras el redireccionamiento.
+
+---
+
+## 📋 Supuestos Realizados
+* **Cédula como ID Único:** Se considera que la cédula es un número único e inmutable, usado como parámetro principal en rutas de actualización (`/users/update/:cedula`).
+* **Seguridad CORS:** El backend permite peticiones desde `localhost:3000`.
+* **Estado de Autenticación:** Se asume el envío del token JWT en los encabezados de Axios (`auth-token`) para rutas protegidas.
+* **Imágenes de Perfil:** Se utiliza una URL genérica para la foto de perfil ante la falta de un servidor de almacenamiento externo (como S3).
+* **Conectividad:** Es indispensable contar con conexión estable a internet para comunicar con el clúster de **MongoDB Atlas**.
+
+---
+Desarrollado con ❤️ para la gestión del sector agrícola.
